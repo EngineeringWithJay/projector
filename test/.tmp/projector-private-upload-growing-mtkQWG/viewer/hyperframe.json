@@ -1,0 +1,58 @@
+{
+  "sessions": {
+    "043d6f9329ce0831d9cd318cb9a9cb61233bef2b46085304b3dd0a02e02d2ef8": {
+      "id": "043d6f9329ce0831d9cd318cb9a9cb61233bef2b46085304b3dd0a02e02d2ef8",
+      "sessionCode": "043d6f9329ce0831d9cd318cb9a9cb61233bef2b46085304b3dd0a02e02d2ef8",
+      "name": "Session 043d6f93",
+      "origin": "joined",
+      "role": "viewer",
+      "ownerId": null,
+      "ownerLabel": null,
+      "ownerSigningKey": null,
+      "messagesKey": null,
+      "objectsKey": null,
+      "extentsKey": null,
+      "memberSigningKeys": {
+        "15dd0d3f-50ae-43af-bca9-6702fa09d3c1": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6kLgNRzM6JaA3gw1NNlq1P3XV/WsxyRiyHI6qeyfrbA=\n-----END PUBLIC KEY-----"
+      },
+      "memberProfiles": {
+        "15dd0d3f-50ae-43af-bca9-6702fa09d3c1": {
+          "label": "Viewer",
+          "avatar": null,
+          "updatedAt": 1774706395452
+        }
+      },
+      "memberAccessPolicies": {
+        "15dd0d3f-50ae-43af-bca9-6702fa09d3c1": {
+          "status": "pending",
+          "workspaceAccess": "none",
+          "activityAccess": "none",
+          "uploadAccess": "none",
+          "companyLabel": "",
+          "allowedPaths": [],
+          "requestOpen": false,
+          "requestedAt": 0,
+          "updatedAt": 1774706395452
+        }
+      },
+      "deviceAliases": {},
+      "admins": [],
+      "viewers": [
+        "15dd0d3f-50ae-43af-bca9-6702fa09d3c1"
+      ],
+      "activeWriterId": null,
+      "workspaceKey": null,
+      "metadataKey": null,
+      "visibilityRules": {},
+      "privateShares": {},
+      "epoch": 1,
+      "createdAt": 1774706395452,
+      "updatedAt": 1774706395452,
+      "lastConnectedAt": 1774706395452
+    }
+  },
+  "sessionOrder": [
+    "043d6f9329ce0831d9cd318cb9a9cb61233bef2b46085304b3dd0a02e02d2ef8"
+  ],
+  "currentSessionId": "043d6f9329ce0831d9cd318cb9a9cb61233bef2b46085304b3dd0a02e02d2ef8"
+}

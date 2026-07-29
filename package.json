@@ -1,0 +1,32 @@
+{
+  "name": "projector",
+  "version": "0.1.0",
+  "description": "Governed peer-to-peer workspace platform built on HyperFrame",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/run.js",
+    "test:e2e-swarm": "node scripts/e2e-swarm-validation.js",
+    "test:electron": "electron scripts/electron-test-runner.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^41.0.3"
+  },
+  "dependencies": {
+    "b4a": "^1.8.0",
+    "chokidar": "^5.0.0",
+    "compact-encoding": "^2.15.0",
+    "corestore": "^7.9.2",
+    "hypercore-crypto": "^3.6.1",
+    "hyperdrive": "^13.3.1",
+    "hyperframe": "file:../hyperframe",
+    "hyperswarm": "^4.17.0",
+    "localdrive": "^2.2.1",
+    "lucide-static": "^0.577.0",
+    "mirror-drive": "^1.13.0",
+    "protomux": "^3.10.1"
+  }
+}

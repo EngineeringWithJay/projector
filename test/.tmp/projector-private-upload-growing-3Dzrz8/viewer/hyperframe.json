@@ -1,0 +1,75 @@
+{
+  "sessions": {
+    "99c1ffe3da8ba94c5a563d205fc8cd19cc2b53d144faa82f1830e3966d49339a": {
+      "id": "99c1ffe3da8ba94c5a563d205fc8cd19cc2b53d144faa82f1830e3966d49339a",
+      "sessionCode": "99c1ffe3da8ba94c5a563d205fc8cd19cc2b53d144faa82f1830e3966d49339a",
+      "name": "Session 99c1ffe3",
+      "origin": "joined",
+      "role": "viewer",
+      "ownerId": "e8c02f11-c74d-4d49-88f6-4cf059eda25e",
+      "ownerLabel": "Owner",
+      "ownerSigningKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9p3Yv5B5ku8U7YP+qHHtky/8h7UHe65hvrg5nkRyoJc=\n-----END PUBLIC KEY-----\n",
+      "messagesKey": "129cb495a6cfaf0d98b706d684cdd8d80309bb8d1d495a03c600892ebcde0e08",
+      "objectsKey": "c1c7457d8bab80c0897391c1df7cfcc061de77b11cb401101504daca53f5a3b1",
+      "extentsKey": "9769f8620e6736e5bc04bb84e9a051636a40f772d2e3727fe21603f6e9851991",
+      "memberSigningKeys": {
+        "e8c02f11-c74d-4d49-88f6-4cf059eda25e": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA9p3Yv5B5ku8U7YP+qHHtky/8h7UHe65hvrg5nkRyoJc=\n-----END PUBLIC KEY-----",
+        "edcef34d-0a1d-45d8-8804-c96125b2df5d": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAgMe72wfANJ0phlhEyYow6lMEw/owK/f2J7dUuTOE2u0=\n-----END PUBLIC KEY-----"
+      },
+      "memberProfiles": {
+        "e8c02f11-c74d-4d49-88f6-4cf059eda25e": {
+          "label": "Owner",
+          "avatar": null,
+          "updatedAt": 1774657953559
+        },
+        "edcef34d-0a1d-45d8-8804-c96125b2df5d": {
+          "label": "Viewer",
+          "avatar": null,
+          "updatedAt": 1774657973604
+        }
+      },
+      "memberAccessPolicies": {
+        "e8c02f11-c74d-4d49-88f6-4cf059eda25e": {
+          "status": "approved",
+          "workspaceAccess": "allowed",
+          "activityAccess": "all",
+          "uploadAccess": "allowed",
+          "companyLabel": "Owner",
+          "allowedPaths": [],
+          "requestOpen": false,
+          "requestedAt": 0,
+          "updatedAt": 1774657953559
+        },
+        "edcef34d-0a1d-45d8-8804-c96125b2df5d": {
+          "status": "pending",
+          "workspaceAccess": "none",
+          "activityAccess": "none",
+          "uploadAccess": "none",
+          "companyLabel": "",
+          "allowedPaths": [],
+          "requestOpen": false,
+          "requestedAt": 0,
+          "updatedAt": 1774657973604
+        }
+      },
+      "deviceAliases": {},
+      "admins": [],
+      "viewers": [
+        "edcef34d-0a1d-45d8-8804-c96125b2df5d"
+      ],
+      "activeWriterId": "e8c02f11-c74d-4d49-88f6-4cf059eda25e",
+      "workspaceKey": "65348748a46854423b28caf64d7a86912f0524662b34f5edf9f4cf4891995ebc",
+      "metadataKey": "9f4be8e6e46183a755756e74c7bb44e677a0e61a0354fbfd8e8c497c688b3e23",
+      "visibilityRules": {},
+      "privateShares": {},
+      "epoch": 2,
+      "createdAt": 1774657973865,
+      "updatedAt": 1774657973604,
+      "lastConnectedAt": 1774657953584
+    }
+  },
+  "sessionOrder": [
+    "99c1ffe3da8ba94c5a563d205fc8cd19cc2b53d144faa82f1830e3966d49339a"
+  ],
+  "currentSessionId": "99c1ffe3da8ba94c5a563d205fc8cd19cc2b53d144faa82f1830e3966d49339a"
+}

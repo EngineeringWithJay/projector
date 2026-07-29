@@ -1,0 +1,56 @@
+{
+  "sessions": {
+    "3a4c66751181f4f5da759ac825d353ddf145a48755bfe20ab6ef4c7dd6cec9f6": {
+      "id": "3a4c66751181f4f5da759ac825d353ddf145a48755bfe20ab6ef4c7dd6cec9f6",
+      "sessionCode": "3a4c66751181f4f5da759ac825d353ddf145a48755bfe20ab6ef4c7dd6cec9f6",
+      "name": "Session 3a4c6675",
+      "origin": "owned",
+      "role": "owner",
+      "ownerId": "08276fba-1d00-402b-8a6c-ebed0baa2a79",
+      "ownerLabel": "Owner",
+      "ownerSigningKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA+5pvv35EGNU3Kqr+cAE2IYflttlX6fcSgv1NjAo2fGk=\n-----END PUBLIC KEY-----\n",
+      "messagesKey": "e13de24731c458d519adaf896fc979552400a7ff2dbcfb932a51d4c83d6fe71b",
+      "objectsKey": "ec3669150b8b180ca9593975dd605f28eb4a0408ca1135f12544e2ff83e9c8e1",
+      "extentsKey": "4d98d6819253b326681ca6a3c815a781de883d8e8ea5a34ddf7924896d726dce",
+      "memberSigningKeys": {
+        "08276fba-1d00-402b-8a6c-ebed0baa2a79": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA+5pvv35EGNU3Kqr+cAE2IYflttlX6fcSgv1NjAo2fGk=\n-----END PUBLIC KEY-----"
+      },
+      "memberProfiles": {
+        "08276fba-1d00-402b-8a6c-ebed0baa2a79": {
+          "label": "Owner",
+          "avatar": null,
+          "updatedAt": 1774668678303
+        }
+      },
+      "memberAccessPolicies": {
+        "08276fba-1d00-402b-8a6c-ebed0baa2a79": {
+          "status": "approved",
+          "workspaceAccess": "allowed",
+          "activityAccess": "all",
+          "uploadAccess": "allowed",
+          "companyLabel": "Owner",
+          "allowedPaths": [],
+          "requestOpen": false,
+          "requestedAt": 0,
+          "updatedAt": 1774668678303
+        }
+      },
+      "deviceAliases": {},
+      "admins": [],
+      "viewers": [],
+      "activeWriterId": "08276fba-1d00-402b-8a6c-ebed0baa2a79",
+      "workspaceKey": "f4f9312ceddf17e58f254944d8c8cd5d4528134535d22e7dd7fd07bea39fb6d1",
+      "metadataKey": "0fc3255ffe5fee8a1db58f76892cd9d98b2d8af9c1c4bcfe75a73359f1e57389",
+      "visibilityRules": {},
+      "privateShares": {},
+      "epoch": 1,
+      "createdAt": 1774668678326,
+      "updatedAt": 1774668678304,
+      "lastConnectedAt": 1774668678303
+    }
+  },
+  "sessionOrder": [
+    "3a4c66751181f4f5da759ac825d353ddf145a48755bfe20ab6ef4c7dd6cec9f6"
+  ],
+  "currentSessionId": "3a4c66751181f4f5da759ac825d353ddf145a48755bfe20ab6ef4c7dd6cec9f6"
+}

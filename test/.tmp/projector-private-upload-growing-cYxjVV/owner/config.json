@@ -1,0 +1,9 @@
+{
+  "deviceId": "8df9326e-357a-4f2c-b613-fd50ec2085cd",
+  "deviceLabel": "",
+  "deviceAvatar": null,
+  "devicePrivateKey": "b03a77d35b0684e872cbcd98163beea63d3c",
+  "deviceSignPublicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAENgiwvBiQ9uXRR4yixbfl06J0iqeFBeojz7RrsIQitg=\n-----END PUBLIC KEY-----\n",
+  "deviceSignPrivateKey": "-----BEGIN PRIVATE KEY-----\nMC4CAQAwBQYDK2VwBCIEIP+YYk8RDTfDShpkyluyUqvaHkSX1nm/aZzgEhUJANDX\n-----END PRIVATE KEY-----\n",
+  "profileSetupComplete": false
+}

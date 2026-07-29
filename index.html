@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- First-run screen -->
+  <div id="first-run-screen" class="screen" style="display:none;">
+    <div class="first-run-container">
+      <h1 class="first-run-title">Projector</h1>
+      <p class="first-run-subtitle">Governed workspace platform</p>
+      <div class="first-run-card" id="first-run-profile-card">
+        <label>Your Name</label>
+        <input type="text" id="first-run-name-input" placeholder="Enter your name" maxlength="40">
+        <div class="first-run-actions">
+          <button id="first-run-create-btn" class="btn btn-primary">Create Session</button>
+          <div class="join-inline">
+            <input type="text" id="first-run-join-input" placeholder="Session code">
+            <button id="first-run-join-btn" class="btn btn-secondary">Join</button>
+          </div>
+        </div>
+        <p id="first-run-status" class="status-text"></p>
+      </div>
+      <div class="first-run-card" id="first-run-sessions-card" style="display:none;">
+        <h3>Saved Sessions</h3>
+        <div id="first-run-session-library"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main app -->
+  <div id="app-screen" class="screen" style="display:none;">
+    <!-- Health bar -->
+    <div id="health-bar" class="health-bar">
+      <span class="health-pill" id="health-role-pill">
+        <span class="dot" id="health-role-dot"></span>
+        <span id="health-role-label">—</span>
+      </span>
+      <span class="health-pill" id="health-network-pill">
+        <span class="dot" id="health-network-dot"></span>
+        <span id="health-network-label">—</span>
+      </span>
+      <span class="health-pill" id="health-workspace-pill">
+        <span class="dot" id="health-workspace-dot"></span>
+        <span id="health-workspace-label">—</span>
+      </span>
+      <span class="health-pill" id="health-session-pill">
+        <span class="dot" id="health-session-dot"></span>
+        <span id="health-session-label">—</span>
+      </span>
+      <span class="health-pill session-name" id="health-session-name"></span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+      <button class="nav-item active" data-tab="browse">Browse</button>
+      <button class="nav-item" data-tab="requests">Requests</button>
+      <button class="nav-item" data-tab="announcements">Announcements</button>
+      <button class="nav-item" data-tab="network">Network</button>
+      <button class="nav-item" data-tab="system">System</button>
+    </nav>
+
+    <!-- Tab Contents -->
+    <div class="tab-contents">
+      <!-- Browse Tab -->
+      <div class="tab-content active" id="tab-browse">
+        <div class="browse-header">
+          <h2 id="browse-title">Workspace</h2>
+          <p id="browse-subtitle" class="text-muted"></p>
+          <div class="browse-actions">
+            <button id="open-private-folder-btn" class="btn btn-ghost btn-sm">Open Private Folder</button>
+          </div>
+          <div class="browse-actions" id="browse-owner-actions" style="display:none;">
+            <button id="select-folder-btn" class="btn btn-secondary btn-sm">Select Folder</button>
+          </div>
+        </div>
+        <div class="browse-toolbar">
+          <div id="browse-breadcrumbs" class="browse-breadcrumbs"></div>
+          <div class="browse-toolbar-actions">
+            <button id="browse-up-btn" class="btn btn-ghost btn-sm">Up</button>
+          </div>
+        </div>
+        <div id="browse-sync-progress" class="browse-sync-progress" style="display:none;">
+          <div class="browse-sync-meta">
+            <span id="browse-sync-label" class="browse-sync-label">Publishing update</span>
+            <span id="browse-sync-value" class="browse-sync-value">0%</span>
+          </div>
+          <div class="progress-bar browse-progress-bar"><div id="browse-sync-fill" class="progress-fill"></div></div>
+        </div>
+        <div id="file-tree" class="file-tree"></div>
+        <div id="browse-empty" class="empty-state">
+          <p>Select a source folder to publish workspace files</p>
+        </div>
+      </div>
+
+      <!-- Requests Tab -->
+      <div class="tab-content" id="tab-requests">
+        <div class="requests-header">
+          <h2 id="requests-title">Requests</h2>
+          <p id="requests-subtitle" class="text-muted"></p>
+        </div>
+        <!-- Member: submit request -->
+        <div id="request-submit-section" style="display:none;">
+          <div class="request-submit-card">
+            <textarea id="request-body-input" placeholder="Ask for access or a policy change..." rows="2" maxlength="2000"></textarea>
+            <div class="request-submit-actions">
+              <p id="request-submit-status" class="status-text"></p>
+              <button id="submit-request-btn" class="btn btn-primary btn-sm">Submit Request</button>
+            </div>
+          </div>
+        </div>
+        <!-- Request list -->
+        <div id="request-list" class="request-list"></div>
+        <div id="requests-empty" class="empty-state"><p>No member requests yet</p></div>
+      </div>
+
+      <!-- Announcements Tab -->
+      <div class="tab-content" id="tab-announcements">
+        <div class="announcements-header">
+          <h2 id="announcements-title">Announcements</h2>
+          <p id="announcements-subtitle" class="text-muted"></p>
+        </div>
+        <div id="announcement-compose" style="display:none;">
+          <div class="announcement-compose-card">
+            <textarea id="announcement-body-input" placeholder="Write an announcement for approved members..." rows="2" maxlength="2000"></textarea>
+            <div class="announcement-compose-actions">
+              <label class="announcement-pin-label"><input type="checkbox" id="announcement-pinned-input"> Pin</label>
+              <select id="announcement-priority-input">
+                <option value="normal">Normal</option>
+                <option value="high">High</option>
+              </select>
+              <button id="post-announcement-btn" class="btn btn-primary btn-sm">Post</button>
+            </div>
+            <p id="announcement-compose-status" class="status-text"></p>
+          </div>
+        </div>
+        <div id="announcement-list" class="announcement-list"></div>
+        <div id="announcements-empty" class="empty-state"><p>No announcements posted yet</p></div>
+      </div>
+
+      <!-- Network Tab -->
+      <div class="tab-content" id="tab-network">
+        <div id="network-self-card" class="network-card self-card"></div>
+
+        <!-- Member Management (owner-only, hidden for non-owners) -->
+        <div id="member-management" style="display:none;">
+          <h2>Other Members</h2>
+          <div id="member-list" class="member-list"></div>
+        </div>
+
+        <h3>Pending Peers</h3>
+        <div id="pending-peer-list" class="list"></div>
+
+        <h3>Connected Peers</h3>
+        <div id="peer-list" class="list"></div>
+      </div>
+
+      <!-- System Tab -->
+      <div class="tab-content" id="tab-system">
+        <h2>System</h2>
+        <div class="system-grid">
+          <div class="system-card">
+            <h3>Session</h3>
+            <div class="system-row"><span class="system-label">Current Session</span><span id="display-session-name" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Role</span><span id="display-role" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Approval</span><span id="display-approval" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Network</span><span id="display-network-status" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Peer Count</span><span id="display-peer-count" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Owner Reachable</span><span id="display-owner-reachable" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Session State</span><span id="display-session-state" class="system-value">—</span></div>
+          </div>
+          <div class="system-card">
+            <h3>Workspace</h3>
+            <div class="system-row"><span class="system-label">Workspace Status</span><span id="display-workspace-status" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Source Folder</span><span id="display-source-folder" class="system-value system-path">—</span></div>
+            <div class="system-row"><span class="system-label">Storage Root</span><span id="display-storage-root" class="system-value system-path">—</span></div>
+            <div class="system-row"><span class="system-label">Managed Workspace</span><span id="display-managed-workspace" class="system-value system-path">—</span></div>
+            <div class="system-row"><span class="system-label">Private Root</span><span id="display-private-root" class="system-value system-path">—</span></div>
+            <div class="system-row"><span class="system-label">My Private Share</span><span id="display-private-share-path" class="system-value system-path">—</span></div>
+            <div class="system-row"><span class="system-label">Upload Permission</span><span id="display-upload-permission" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Private Upload Lane</span><span id="display-private-upload-lane" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Watcher Active</span><span id="display-watcher-active" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Mirror Activity</span><span id="display-mirror-activity" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Publish Progress</span><span id="display-publish-progress" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Sync Ready</span><span id="display-sync-ready" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Active Transfers</span><span id="display-transfer-count" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Upload Jobs</span><span id="display-upload-jobs" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Upload Progress</span><span id="display-upload-progress" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Import Jobs</span><span id="display-import-jobs" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Import Progress</span><span id="display-import-progress" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Last Issue</span><span id="display-last-error" class="system-value system-path">None</span></div>
+          </div>
+          <div class="system-card">
+            <h3>Storage Fabric</h3>
+            <div class="system-row"><span class="system-label">Virtual Capacity</span><span id="display-fabric-capacity" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Virtual Free Space</span><span id="display-fabric-free" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Online Contributors</span><span id="display-fabric-online" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Writable Holders</span><span id="display-fabric-writable" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">This Device</span><span id="display-local-storage" class="system-value">—</span></div>
+          </div>
+          <div class="system-card">
+            <h3>Extent Fabric</h3>
+            <div class="system-row"><span class="system-label">Total Objects</span><span id="display-total-objects" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Total Extents</span><span id="display-total-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Healthy Extents</span><span id="display-healthy-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Degraded Extents</span><span id="display-degraded-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Under-Replicated</span><span id="display-under-replicated-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Unavailable</span><span id="display-unavailable-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Repairing</span><span id="display-repairing-extents" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Assigned Bytes</span><span id="display-assigned-bytes" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Stored Bytes</span><span id="display-stored-bytes" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Cached Bytes</span><span id="display-cached-bytes" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Local Held Bytes</span><span id="display-local-held-bytes" class="system-value">—</span></div>
+            <div class="system-row"><span class="system-label">Online Holders</span><span id="display-online-holders" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Offline Holders</span><span id="display-offline-holders" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Repair Queue</span><span id="display-repair-queue" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Rebalance Queue</span><span id="display-rebalance-queue" class="system-value">0</span></div>
+            <div class="system-row"><span class="system-label">Fabric Mode</span><span id="display-fabric-mode" class="system-value">—</span></div>
+          </div>
+        </div>
+        <div class="system-card">
+          <div class="system-row">
+            <span class="system-label">Session Code</span>
+            <span class="system-value"><code id="display-session-code"></code> <button id="copy-session-btn" class="btn btn-ghost btn-sm">Copy</button></span>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Device ID</span>
+            <span class="system-value"><code id="display-device-id"></code></span>
+          </div>
+        </div>
+        <div class="system-card">
+          <div class="system-log-header">
+            <h3>Recent Logs</h3>
+            <div class="system-log-actions">
+              <button id="refresh-logs-btn" class="btn btn-ghost btn-sm">Refresh</button>
+              <button id="open-log-folder-btn" class="btn btn-ghost btn-sm">Open Folder</button>
+              <button id="clear-logs-btn" class="btn btn-secondary btn-sm">Clear</button>
+            </div>
+          </div>
+          <div class="system-row">
+            <span class="system-label">Log File</span>
+            <span id="display-log-path" class="system-value system-path">—</span>
+          </div>
+          <div id="system-log-list" class="system-log-list"></div>
+        </div>
+        <div class="system-card">
+          <h3>Saved Sessions</h3>
+          <div id="system-session-library" class="list"></div>
+        </div>
+        <div class="system-actions">
+          <button id="log-off-btn" class="btn btn-secondary btn-sm">Log Off</button>
+          <button id="reset-profile-btn" class="btn btn-danger btn-sm">Reset Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/ui/renderer.js"></script>
+</body>
+</html>
