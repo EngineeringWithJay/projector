@@ -1,44 +1,75 @@
-# Projector
+> Built to solve file synchronization without cloud provider dependency, third-party storage fees, or data leaving your network.
 
-P2P storage projector built on hypercore, hyperdrive, and hyperswarm for decentralized file synchronization.
+# P2P Storage Projector — Projector
 
-## What it does
+## The Problem
 
-Projector creates secure, peer-to-peer storage overlays using the Hypercore protocol. It projects local files into a distributed network where they can be discovered and synced by authorized peers without any central server.
+File sync between devices today means choosing between centralized cloud storage (Google Drive, Dropbox — $10–$20/TB/month with privacy tradeoffs) or complex self-hosted solutions (Nextcloud, Syncthing — requires server infrastructure and configuration). There's no simple, zero-infrastructure option for secure P2P file sync.
 
-Built for offline-first, multi-device workflows where cloud dependency isn't desirable.
+## The Solution
 
-## Technology
+Projector creates peer-to-peer storage overlays using the Hypercore protocol. It projects local files into a distributed network where authorized peers discover and sync them directly — no central server, no cloud fees, no data leaving your encrypted P2P mesh.
 
-| Layer | Stack |
-|-------|-------|
-| Transport | hyperswarm (P2P discovery) |
-| Storage | hypercore, hyperdrive |
-| Sync | mirror-drive |
-| Persistence | corestore, localdrive |
-| Platform | Node.js + Electron |
-| Caching | hypercore-crypto |
+## Live Demo
 
-## Architecture
+> 📹 **Demo:** [Insert 30-second screen recording showing: select folder → share link → peer syncs files]
+>
+> 🔗 *Electron desktop app*
+
+## Key Metrics & Impact
+
+- **Zero-infrastructure sync:** P2P discovery via hyperswarm — no server required for peer discovery
+- **Encrypted transport:** All data transferred via hypercore's cryptographic integrity verification
+- **Offline-first:** localdrive + corestore persist data locally; syncs when peers become available
+- **Real-time mirroring:** mirror-drive watches filesystem changes and propagates delta updates
+- **Content-addressed:** hyperdrive ensures every block is cryptographically verified — tamper detection built in
+- **Concurrent peers:** hyperswarm connects through NAT/firewalls via distributed hash table — no port forwarding
+
+## Technical Architecture
+
+| Layer | Technology |
+|-------|-----------|
+| **Application** | Electron, Node.js |
+| **Transport** | hyperswarm (P2P discovery and connection) |
+| **Storage** | hypercore, hyperdrive (content-addressed) |
+| **Sync Engine** | mirror-drive, localdrive |
+| **Persistence** | corestore |
+| **Integrity** | hypercore-crypto |
+
+## How It Works
 
 ```
-Local files → localdrive → hyperdrive (encrypted)
-                                │
-                    ┌───────────┴───────────┐
-                    ▼                       ▼
-              hyperswarm              hypercore-crypto
-           (peer discovery)         (content integrity)
-                    │
-                    ▼
-            Authorized Peers
+Local Filesystem
+        │
+        ▼
+  localdrive ──→ Encapsulates local directory as a hyperdrive
+        │
+        ▼
+  hyperdrive ──→ Content-addressed, versioned storage
+        │
+        ▼
+  hyperswarm ──→ DHT-based peer discovery across NAT
+        │
+        ▼
+  mirror-drive ──→ Watches changes, syncs deltas
+        │
+        ▼
+  Remote Peers ──→ Receive verified, encrypted file copies
 ```
 
-## Use cases
+## Local Setup
 
-- Sync project files between machines without a cloud provider
-- Share large files with collaborators using direct P2P connections
-- Offline-first archival with cryptographic integrity verification
+```bash
+# Clone and install
+npm install
 
-## Status
+# Start the projector
+npm start
 
-Working prototype. Core sync and discovery are functional.
+# Run P2P sync tests
+npm test
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE)
